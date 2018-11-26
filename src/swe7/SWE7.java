@@ -8,6 +8,7 @@ public class SWE7 {
     public static void main(String[] args) {
     
         Scanner get =new Scanner(System.in);
+        
         System.out.print("0- input numbers seprated by space \n1- input string\n");
         
         int v =get.nextInt();
