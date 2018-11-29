@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class SWE7 {
 
 
-    public static Vector <Integer> v = new Vector<Integer>();
+   public static Vector <Integer> v = new Vector<Integer>();
     public static void main(String[] args) {
 
     // adding the reverse function
@@ -35,7 +35,7 @@ public class SWE7 {
         
         Scanner get =new Scanner(System.in);
         
-        System.out.print("0- input numbers seprated by space \n1- input string\n");
+        System.out.print("0- input numbers seprated by space \n1- input string\n11- Distinct Array\n");
         
         int v =get.nextInt();
         ImplementationMain(v);
@@ -114,6 +114,19 @@ public static void ImplementationMain(int num)
                 }
        
         }
+    else if (num ==  11)
+    {
+    	Scanner  y =new Scanner(System.in);
+    	System.out.print("Enter the Size of the Array : ");
+    	int sizeofarr =y.nextInt();
+    	Integer []Arr = new Integer[sizeofarr];
+    	System.out.print("Type "+sizeofarr+" elemnets : ");
+    	for (int i= 0; i < sizeofarr ; i++)
+    	{
+    		Arr[i] = y.nextInt();
+    	}
+    	PrintDistinctArray(Arr,sizeofarr);
+    }
  
      
 }
@@ -132,6 +145,21 @@ public static < E > void SheftArray(E[] nums) {
         nums[i] = nums[i + 1];
     }
               
-}
+}	
+public static void PrintDistinctArray (Integer [] arr,int size)		//Distinct Array  Function
+{
+	System.out.print("Output :");
+	for (int i = 0 ; i < size ; i++)
+	{
+		int j;
+		for (j = 0 ; j < i ; j++)
+		{
+			if (arr[i]==arr[j])
+				break;
+		}
+		if (i==j)
+			System.out.print(" "+arr[i]);
+	}
 
+}
 }
