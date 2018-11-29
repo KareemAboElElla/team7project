@@ -4,9 +4,35 @@ import java.util.Scanner;
 
 public class SWE7 {
 
+
     public static Vector <Integer> v = new Vector<Integer>();
     public static void main(String[] args) {
+
+    // adding the reverse function
+    public static < E > void reverse_array(E [] array){
+        if (array.length%2==0){
+            for (int i=0;i<array.length/2;i++){
+                E temp;
+                temp=array[i];
+                array[i]=array[array.length-i-1];
+                array[array.length-i-1]=temp;
+            }
+        }
+        else {
+            for (int i=0;i<=(array.length/2)-1;i++){
+                E temp;
+                temp=array[i];
+                array[i]=array[array.length-i-1];
+                array[array.length-i-1]=temp;
+            }
+        }
+        for (int i=0;i<array.length;i++){
+            System.out.print(array[i]+" ");
+        }
+    }
     
+    public static void main(String[] args) {
+        
         Scanner get =new Scanner(System.in);
         
         System.out.print("0- input numbers seprated by space \n1- input string\n");
