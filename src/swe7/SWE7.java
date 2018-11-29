@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SWE7 {
 
-
+    public static Vector <Integer> v = new Vector<Integer>();
     public static void main(String[] args) {
     
         Scanner get =new Scanner(System.in);
@@ -13,7 +13,45 @@ public class SWE7 {
         
         int v =get.nextInt();
         ImplementationMain(v);
+         largestprime();
     }
+
+
+
+ public static void largestprime() {
+   Scanner input =new Scanner (System.in);
+  int x;
+  System.out.println("Enter no of digits you want to add");
+  x = input.nextInt();
+  for (int i=0;i<x;i++) {
+	  int n= input.nextInt();
+	  v.add(n);
+	  
+	  
+  }
+ 
+  boolean isPrime;
+  int m=-1;
+  for(int i=0;i<x;i++) {
+	  isPrime = true;
+	  for(int j=2;j<v.get(i);j++) {
+		  if (v.get(i)%j==0) {
+			  isPrime = false;
+			  break;
+			  
+		  }
+		  
+		  }
+	  
+	  if(isPrime==true) {
+		  m=Math.max(m, v.get(i));
+	  }
+	  
+	  
+  }
+  System.out.println(m);
+}
+
 public static void ImplementationMain(int num)
 {
     
