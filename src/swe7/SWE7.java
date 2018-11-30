@@ -1,5 +1,6 @@
 package swe7;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -8,7 +9,12 @@ public class SWE7 {
 
    public static Vector <Integer> v = new Vector<Integer>();
     public static void main(String[] args) {
-
+        /* minPrime test : 
+        int set[] = {6,30,4,4,12};
+        minPrime(set);
+        int exit = 0 ;
+        if(exit==0)return;
+        */
         Scanner get =new Scanner(System.in);
 
         System.out.println("0- input numbers seprated by space \n1- input string\n11- Distinct Array\npraee :1");
@@ -37,8 +43,8 @@ public class SWE7 {
         System.out.println(x);
          System.out.println(y);
         }
-        
-        
+
+
         if(num==4)  ///get average
         {
         System.out.println("enter how many number");
@@ -89,7 +95,7 @@ public class SWE7 {
   System.out.println(m);
 }
 
- /// ImplementationMain da be3ml eh 
+ /// ImplementationMain da be3ml eh (Dah badal maykteb kol dah gowa el main byndah el function bas)
 public static void ImplementationMain(int num)
 {
 
@@ -212,7 +218,7 @@ public static < E > void reverse_array(E [] array){
 
      return (ascending);
      }
- 
+
  public static void Getaverage(int [] arr) {
         float sum=0;
         float avg;
@@ -221,7 +227,36 @@ public static < E > void reverse_array(E [] array){
         }
         avg=sum/arr.length;
         System.out.println("average"+avg);
-    
-    }
 
+    }
+/****************M.Hisham***********************/
+public static boolean isPrime(int x){
+    if(x==1 || x==2){
+        return true;
+    }
+    int n = (int)Math.floor(Math.sqrt(x));
+    for(int i = 2 ; i <= n; i++){
+          if(x%i == 0){
+              return false;
+          }
+    }
+    return true;
+}
+// O(n*sqrt(k)) if we say n is the size of the array and k is the maximum element in the array
+public static void minPrime(int [] arr){
+    int min = Integer.MAX_VALUE;
+    for(int i = 0 ; i < arr.length ;i++){
+        if(isPrime(arr[i])){
+          if(arr[i]<min){
+            min = arr[i];
+            }
+        }
+    }
+    if(min == Integer.MAX_VALUE){
+        System.out.println("no prime values in the array!");
+        return;
+    }
+    System.out.println("Lowest prime value is:"+min);
+}
+/**********************end M.Hisham*******************/
 }
