@@ -37,6 +37,20 @@ public class SWE7 {
         System.out.println(x);
          System.out.println(y);
         }
+        
+        
+        if(num==4)  ///get average
+        {
+        System.out.println("enter how many number");
+        int l = 0;
+        l=get.nextInt();
+        int [] arr=new int [l];
+        System.out.println("enter numbers ");
+        for(int i=0;i<l;i++){
+        arr[i]=get.nextInt();
+        }
+        Getaverage(arr);
+        }
     }
 
 
@@ -75,6 +89,7 @@ public class SWE7 {
   System.out.println(m);
 }
 
+ /// ImplementationMain da be3ml eh 
 public static void ImplementationMain(int num)
 {
 
@@ -197,5 +212,16 @@ public static < E > void reverse_array(E [] array){
 
      return (ascending);
      }
+ 
+ public static void Getaverage(int [] arr) {
+        float sum=0;
+        float avg;
+        for(int i=0;i<arr.length;i++){
+        sum+=arr[i];
+        }
+        avg=sum/arr.length;
+        System.out.println("average"+avg);
+    
+    }
 
 }
