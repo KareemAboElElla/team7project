@@ -1,11 +1,11 @@
-package swe7;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class SWE7 {
+public class SWE7{
 
     
 
@@ -55,6 +55,7 @@ public class SWE7 {
         System.out.println("To Suffle array :8");
         System.out.println("To Get The Median press :9");
         System.out.println("To Distincit array :10");
+        System.out.println("To Most repeated value :11");
         System.out.println("To Do all :18");
         System.out.println("To Exit :19");
         System.out.println("Your Choice: ");
@@ -157,7 +158,10 @@ public class SWE7 {
             if (type==2){
                 PrintDistinctArray(array,array.length);
             }
-        }
+        } if (num == 11) {	
+		RepeatedValue(arr);
+    }
+		
         if (num==18){
             if (type==1){
                 System.out.println("median is : "+median(arr));
@@ -192,6 +196,25 @@ public class SWE7 {
         }
     }
 }
+
+	public static void RepeatedValue(Integer[] arr) {
+	    	int basicCount = 1;
+			int repeated = 0;
+			for (int i = 0 ; i < arr.length; i++) {
+				int number = arr[i]; 
+				int numberCount = 0; 
+				for (int j = 0 ; j < arr.length ; j++) { 
+					if (number == arr[j]) 
+						numberCount++; 
+				}
+				if (numberCount > basicCount){
+					repeated = number;
+					basicCount = numberCount;
+				}	
+			}
+			System.out.println("the most repeated value is " + repeated);
+	    	
+	    }
 
     public static void largestprime(Integer [] arr) {
         
