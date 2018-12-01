@@ -1,5 +1,4 @@
-package swe7;
-
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -7,45 +6,12 @@ import java.util.Vector;
 
 public class SWE7 {
 
-    
+    public static Vector<Integer> v = new Vector<Integer>();
 
     public static void main(String[] args) {
-        Integer [] arr= new Integer[0];
-        String word="";
-        Character [] array = new Character [0];
-        int type,numOfElements;
-        
-        while (true){
-        System.out.print("Enter the array type:\n1-Integer\n2-Characters\nYour Choice: ");
-        
         Scanner get = new Scanner(System.in);
-        type=get.nextInt();
-        
-        if (type == 1){
-            System.out.print("Enter the number of elements: ");
-            get= new Scanner (System.in);
-            numOfElements=get.nextInt();
-            arr= new Integer [numOfElements];
-            for (int i=0;i<numOfElements;i++){
-                System.out.print("Enter element "+i+" : ");
-                get = new Scanner(System.in);
-                arr[i]=get.nextInt();
-            }
-        }
-        else if (type ==2){
-            System.out.print("Enter the Characters : ");
-            get = new Scanner(System.in);
-            word=get.next();
-            array= new Character [word.length()-1];
-            for (int i = 0;i<word.length();i++){
-                array[i]=word.charAt(i);
-            }
-        }
-        else {
-            System.out.println("Please enter a valid choice.");
-            continue;
-        }
-        System.out.println("Choose What next :\nShiftArray:1");
+
+        System.out.println("0- input numbers seprated by space \n1- input string\n11- Distinct Array\npraee :1");
         System.out.println("the reverse function press :2");
         System.out.println("To check if araay is sorted press :3");
         System.out.println("To Get The Average :4");
@@ -54,167 +20,131 @@ public class SWE7 {
         System.out.println("To Get The Primes :7");
         System.out.println("To Suffle array :8");
         System.out.println("To Get The Median press :9");
-        System.out.println("To Distincit array :10");
-        System.out.println("To Do all :18");
-        System.out.println("To Exit :19");
-        System.out.println("Your Choice: ");
+        System.out.println("To get the most repeated value :10");
         int num = 0;
         num = get.nextInt();
-        if (num == 1) ///Shift array
-        {
-            if (type ==1){
-                ShiftArray(arr);
-            }
-            else if (type == 2){
-                ShiftArray(array);
-            }
+        if (num == 1) {
+            int v = get.nextInt();
+            ImplementationMain(v);
+            largestprime();
+
         }
-        
         if (num == 2) //the reverse function
         {
-            if (type == 1)
-                reverse_array(arr);
-            else 
-                reverse_array(array);
+            Integer arr[] = {1, 1, 3, 3, 5};
+            reverse_array(arr);
         }
 
         if (num == 3) //check sort
         {
-            if (type == 1 ){
-                Boolean x = CheckSorted(arr);
-                System.out.println(x);
-            }
-            else if (type==2){
-                Boolean x = CheckSorted(array);
-                System.out.println(x);
-            }
+            Integer arr[] = {1, 1, 3, 3, 5};
+            Double arr2[] = {1.0, .70, 3.0, 3.0, 4.5};
+
+            Boolean x = CheckSorted(arr);
+            Boolean y = CheckSorted(arr2);
+            System.out.println(x);
+            System.out.println(y);
         }
 
         if (num == 4) ///get average
         {
-            if (type == 1){
-                Getaverage(arr);
+            System.out.println("enter how many number");
+            int l = 0;
+            l = get.nextInt();
+            int[] arr = new int[l];
+            System.out.println("enter numbers ");
+            for (int i = 0; i < l; i++) {
+                arr[i] = get.nextInt();
             }
-            else if (type==2){
-                System.out.println("Can't get average for Letters");
-            }
+            Getaverage(arr);
         }
-        
         if (num == 5) ///get largest prime
         {
-            if (type == 1){
-                largestprime(arr);
-            }
-            if (type == 2){
-                System.out.println("you choose Characters , Can't get primes");
-            }
+            largestprime();
         }
         if (num == 6) ///get min prime
         {
-            if (type==1){
-                minPrime(arr);
-            }
-            else if (type ==2){
-                System.out.println("you choose Characters , Can't get primes");
-            }
+            int[] arr = new int[5];
+            minPrime(arr);
         }
-        
         if (num == 7) ///get primes
         {
+            Scanner input = new Scanner(System.in);
             ArrayList<Integer> myPrim_Arr = new ArrayList();
+            ArrayList<Integer> myArr = new ArrayList();
+            int x;
+            System.out.println("Enter five inputs");
+            for (int i = 0; i < 5; i++) {
+                x = input.nextInt();
+                myArr.add(x);
+            }
             System.out.println("The Prime Numbers are : ");
-            myPrim_Arr = Prime_num(arr);
+            myPrim_Arr = Prime_num(myArr);
             for (int i = 0; i < myPrim_Arr.size(); i++) {
                 System.out.println(myPrim_Arr.get(i));
             }
         }
-        
          if (num == 8) /// Shuffle array
         {
-            if (type==1){
-                shuffle(arr);
-            }
-            else if (type==2){
-                shuffle(array);
-            }
+            Integer [] arr =new Integer [5];
+            shuffle(arr);
         }
-         
         if(num ==9)//get meadian
         {
-             if (type==1){
-                System.out.println("median is :=  "+median(arr));
+             System.out.println("Enter How Many Number In ARRAY");
+             int x = 0;
+             x=get.nextInt();
+             int [] arr=new int [x];
+             System.out.println("Enter The Numbers ");
+              for(int i=0;i<x;i++)
+             {
+             arr[i]=get.nextInt();
              }
-             else if (type==2){
-                 System.out.println("Can't get the median for Characters");
-             }
+             System.out.println("median is :=  "+median(arr));
          }
-        
-        if (num==10) /// get Distincit array
-        {
-            if (type==1){
-                PrintDistinctArray(arr,arr.length);
-            }
-            if (type==2){
-                PrintDistinctArray(array,array.length);
-            }
-        }
-        if (num==18){
-            if (type==1){
-                System.out.println("median is : "+median(arr));
-                ShiftArray(arr);
-                reverse_array(arr);
-                Boolean x = CheckSorted(arr);
-                System.out.println(x);
-                Getaverage(arr);
-                largestprime(arr);
-                minPrime(arr);
-                ArrayList<Integer> myPrim_Arr = new ArrayList();
-                System.out.print("The Prime Numbers are : ");
-                myPrim_Arr = Prime_num(arr);
-                for (int i = 0; i < myPrim_Arr.size(); i++) {
-                    System.out.print(myPrim_Arr.get(i)+" ");
-                }
-                System.out.println();
-                shuffle(arr);
-                PrintDistinctArray(arr,arr.length);
-            }
-            else if (type==2){
-                ShiftArray(arr);
-                reverse_array(arr);
-                Boolean x = CheckSorted(arr);
-                System.out.println(x);
-                shuffle(arr);
-                PrintDistinctArray(arr,arr.length);
-            }
-        }
-        if (num==19){
-            break;
+        if (num == 10) {
+        	int arr[];
+    		arr = new int [100];
+    		Scanner x =  new Scanner (System.in);
+    		System.out.println("Enter the count of numbers : ");
+    		int z = x.nextInt();
+    		System.out.println("Enter the numbers : ");
+    		for (int i = 0 ; i < z ; i++) {
+    			arr[i] = x.nextInt();
+    		}
+    		RepeatedValue(arr,z);
         }
     }
-}
 
-    public static void largestprime(Integer [] arr) {
-        
+    public static void largestprime() {
+        Scanner input = new Scanner(System.in);
+        int x;
+        System.out.println("Enter no of digits you want to add");
+        x = input.nextInt();
+        for (int i = 0; i < x; i++) {
+            int n = input.nextInt();
+            v.add(n);
+        }
         boolean isPrime;
         int m = -1;
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < x; i++) {
             isPrime = true;
-            for (int j = 2; j < arr[i]; j++) {
-                if (arr[i] % j == 0) {
+            for (int j = 2; j < v.get(i); j++) {
+                if (v.get(i) % j == 0) {
                     isPrime = false;
                     break;
 
                 }
             }
             if (isPrime == true) {
-                m = Math.max(m, arr[i]);
+                m = Math.max(m, v.get(i));
             }
         }
-        System.out.println("The Largest Prime is : "+m);
+        System.out.println(m);
     }
-    
-    
-public static int median(Integer[] l)
+    //median function
+    //edit by poula
+public static int median(int[] l)
   {
     Arrays.sort(l);
     int middle = l.length / 2;
@@ -229,8 +159,49 @@ public static int median(Integer[] l)
       return l[middle];
     }
   }
+    public static void ImplementationMain(int num) {
 
-    public static <E> void ShiftArray(E[] nums) {
+        if (num == 0) {
+            Scanner g = new Scanner(System.in);
+            System.out.print("Type the Size : ");
+
+            int n = g.nextInt();
+            Integer[] Arr = new Integer[n];
+            System.out.print("Type " + n + " elemnets : ");
+            for (int i = 0; i < n; i++) {
+                Arr[i] = g.nextInt();
+            }
+            SheftArray(Arr);
+            System.out.print("OutPut : ");
+            for (Integer x : Arr) {
+                System.out.print(x + " ");
+            }
+        } else if (num == 1) {
+            Scanner g = new Scanner(System.in);
+            System.out.print("String : ");
+            String temp = g.next();
+            String[] arr = temp.split("");
+            SheftArray(arr);
+            System.out.println("OutPut : ");
+            for (String x : arr) {
+                System.out.print(x);
+            }
+
+        } else if (num == 11) {
+            Scanner y = new Scanner(System.in);
+            System.out.print("Enter the Size of the Array : ");
+            int sizeofarr = y.nextInt();
+            Integer[] Arr = new Integer[sizeofarr];
+            System.out.print("Type " + sizeofarr + " elemnets : ");
+            for (int i = 0; i < sizeofarr; i++) {
+                Arr[i] = y.nextInt();
+            }
+            PrintDistinctArray(Arr, sizeofarr);
+        }
+
+    }
+
+    public static < E> void SheftArray(E[] nums) {
         E start = null;
         for (int i = 0; i < nums.length; i++) {
             if (i == 0) {
@@ -244,7 +215,7 @@ public static int median(Integer[] l)
         }
     }
 
-    public static <E> void PrintDistinctArray(E [] arr, int size) //Distinct Array  Function
+    public static void PrintDistinctArray(Integer[] arr, int size) //Distinct Array  Function
     {
         System.out.print("Output :");
         for (int i = 0; i < size; i++) {
@@ -258,7 +229,6 @@ public static int median(Integer[] l)
                 System.out.print(" " + arr[i]);
             }
         }
-        System.out.println();
     }
 
     public static < E> void reverse_array(E[] array) {
@@ -280,7 +250,6 @@ public static int median(Integer[] l)
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
-        System.out.println();
     }
 
     public static <T extends Comparable<T>> Boolean CheckSorted(T[] arr) {
@@ -300,15 +269,32 @@ public static int median(Integer[] l)
 
         return (ascending);
     }
-
-    public static void Getaverage(Integer[] arr) {
+    public static void RepeatedValue(int[] arr , int z) {
+    	int basicCount = 1;
+		int repeated = 0;
+		for (int i = 0 ; i < z - 1 ; i++) {
+			int number = arr[i]; 
+			int numberCount = 0; 
+			for (int j = 1 ; j < z ; j++) { 
+				if (number == arr[j]) 
+					numberCount++; 
+			}
+			if (numberCount > basicCount){
+				repeated = number;
+				basicCount = numberCount;
+			}	
+		}
+		System.out.println(repeated);
+    	
+    }
+    public static void Getaverage(int[] arr) {
         float sum = 0;
         float avg;
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
         avg = sum / arr.length;
-        System.out.println("average : " + avg);
+        System.out.println("average" + avg);
 
     }
 
@@ -325,7 +311,7 @@ public static int median(Integer[] l)
         return true;
     }
 
-    public static void minPrime(Integer[] arr) {
+    public static void minPrime(int[] arr) {
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < arr.length; i++) {
             if (isPrime(arr[i])) {
@@ -341,23 +327,23 @@ public static int median(Integer[] l)
         System.out.println("Lowest prime value is:" + min);
     }
 
-    public static ArrayList <Integer> Prime_num(Integer [] myArr) {
+    public static ArrayList<Integer> Prime_num(ArrayList<Integer> myArr) {
         ArrayList<Integer> Prim_Arr = new ArrayList();
         boolean prime;
-        for (int i = 0; i < myArr.length; i++) {
+        for (int i = 0; i < myArr.size(); i++) {
             prime = true;
-            if (myArr[i] == 2) {
-                Prim_Arr.add(myArr[i]);
+            if (myArr.get(i) == 2) {
+                Prim_Arr.add(myArr.get(i));
                 continue;
             }
-            for (int j = 2; j < myArr[i]; j++) {
-                if (myArr[i] % j == 0) {
+            for (int j = 2; j < myArr.get(i); j++) {
+                if (myArr.get(i) % j == 0) {
                     prime = false;
                     break;
                 }
             }
             if (prime) {
-                Prim_Arr.add(myArr[i]);
+                Prim_Arr.add(myArr.get(i));
             }
         }
         return Prim_Arr;
@@ -371,8 +357,8 @@ public static int median(Integer[] l)
             characters[i]=temp;}
         System.out.println("Array in shuffle:");
         for(int j=0;j<characters.length;j++){
-            System.out.print(characters[j]+" ");
+            System.out.println(characters[j]+" ");
         }
-        System.out.println();
     }
 }
+
