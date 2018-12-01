@@ -56,6 +56,7 @@ public class SWE7{
         System.out.println("To Get The Median press :9");
         System.out.println("To Distincit array :10");
         System.out.println("To Most repeated value :11");
+        System.out.println("To Count Primes :12");
         System.out.println("To Do all :18");
         System.out.println("To Exit :19");
         System.out.println("Your Choice: ");
@@ -161,8 +162,18 @@ public class SWE7{
         } if (num == 11) {	
 		RepeatedValue(arr);
     }
-		
-        if (num==18){
+    if(num ==12)//count primes
+            {
+                if (type==1){
+                    System.out.println("count of primes is :=  "+CountPrime(arr));
+                }
+                else if (type==2){
+                    System.out.println("Can't count primes for Characters");
+                }
+            }
+
+
+            if (num==18){
             if (type==1){
                 System.out.println("median is : "+median(arr));
                 ShiftArray(arr);
@@ -397,5 +408,25 @@ public static int median(Integer[] l)
             System.out.print(characters[j]+" ");
         }
         System.out.println();
+    }
+    public static int CountPrime(Integer []nums){
+        int counter = 0;
+        for(int i=0;i<nums.length;i++)
+        {
+            int num = nums[i];
+            boolean flag = false;
+            for(int j = 2; j <= num/2; ++j)
+            {
+                // condition for nonprime number
+                if(num % j == 0)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag)
+                counter++;
+        }
+        return counter;
     }
 }
