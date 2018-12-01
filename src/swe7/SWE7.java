@@ -158,8 +158,11 @@ public class SWE7{
             if (type==2){
                 PrintDistinctArray(array,array.length);
             }
-        } if (num == 11) {	
-		RepeatedValue(arr);
+        } if (num == 11) {
+		if (type==1)
+			RepeatedValue(arr);
+		else if (type==2)
+			RepeatedValue(array);
     }
 		
         if (num==18){
@@ -181,6 +184,7 @@ public class SWE7{
                 System.out.println();
                 shuffle(arr);
                 PrintDistinctArray(arr,arr.length);
+		RepeatedValue(arr);
             }
             else if (type==2){
                 ShiftArray(arr);
@@ -189,6 +193,7 @@ public class SWE7{
                 System.out.println(x);
                 shuffle(arr);
                 PrintDistinctArray(arr,arr.length);
+		RepeatedValue(array);
             }
         }
         if (num==19){
@@ -197,11 +202,11 @@ public class SWE7{
     }
 }
 
-	public static void RepeatedValue(Integer[] arr) {
-	    	int basicCount = 1;
-			int repeated = 0;
+	public static <E> void RepeatedValue(E[] arr) {
+	    	int basicCount = 0;
+			E repeated;
 			for (int i = 0 ; i < arr.length; i++) {
-				int number = arr[i]; 
+				E number = arr[i]; 
 				int numberCount = 0; 
 				for (int j = 0 ; j < arr.length ; j++) { 
 					if (number == arr[j]) 
