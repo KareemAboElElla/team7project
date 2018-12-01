@@ -1,6 +1,7 @@
 package swe7;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -14,6 +15,11 @@ public class SWE7 {
         System.out.println("0- input numbers seprated by space \n1- input string\n11- Distinct Array\npraee :1");
         System.out.println("the reverse function press :2");
         System.out.println("To check if araay is sorted press :3");
+        System.out.println("To Get The Average :4");
+        System.out.println("To Get The Largest Prime :5");
+        System.out.println("To Get The Min Prime :6");
+        System.out.println("To Get The Primes :7");
+        System.out.println("To Suffle array :8");
         System.out.println("To Get The Median press :9");
         int num = 0;
         num = get.nextInt();
@@ -77,6 +83,11 @@ public class SWE7 {
             for (int i = 0; i < myPrim_Arr.size(); i++) {
                 System.out.println(myPrim_Arr.get(i));
             }
+        }
+         if (num == 8) /// Shuffle array
+        {
+            Integer [] arr =new Integer [5];
+            shuffle(arr);
         }
         if(num ==9)//get meadian
         {
@@ -307,5 +318,16 @@ public static int median(int[] l)
             }
         }
         return Prim_Arr;
+    }
+    public static <E> void shuffle(E characters[]){
+         for(int i=0;i<characters.length;i++){
+            int s=i+(int)(Math.random()*(characters.length-i));
+            E temp=characters[s];
+            characters[s]=characters[i];
+            characters[i]=temp;}
+        System.out.println("Array in shuffle:");
+        for(int j=0;j<characters.length;j++){
+            System.out.println(characters[j]+" ");
+        }
     }
 }
