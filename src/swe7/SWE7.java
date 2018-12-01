@@ -14,6 +14,7 @@ public class SWE7 {
         System.out.println("0- input numbers seprated by space \n1- input string\n11- Distinct Array\npraee :1");
         System.out.println("the reverse function press :2");
         System.out.println("To check if araay is sorted press :3");
+        System.out.println("To Get The Median press :9");
         int num = 0;
         num = get.nextInt();
         if (num == 1) {
@@ -77,6 +78,19 @@ public class SWE7 {
                 System.out.println(myPrim_Arr.get(i));
             }
         }
+        if(num ==9)//get meadian
+        {
+             System.out.println("Enter How Many Number In ARRAY");
+             int x = 0;
+             x=get.nextInt();
+             int [] arr=new int [x];
+             System.out.println("Enter The Numbers ");
+              for(int i=0;i<x;i++)
+             {
+             arr[i]=get.nextInt();
+             }
+             System.out.println("median is :=  "+median(arr));
+         }
     }
 
     public static void largestprime() {
@@ -105,7 +119,23 @@ public class SWE7 {
         }
         System.out.println(m);
     }
-
+    //median function
+    //edit by poula
+public static int median(int[] l)
+  {
+    Arrays.sort(l);
+    int middle = l.length / 2;
+    if (l.length % 2 == 0)
+    {
+      int left = l[middle - 1];
+      int right = l[middle];
+      return (left + right) / 2;
+    }
+    else
+    {
+      return l[middle];
+    }
+  }
     public static void ImplementationMain(int num) {
 
         if (num == 0) {
