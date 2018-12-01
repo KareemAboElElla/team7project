@@ -12,7 +12,7 @@ public class SWE7 {
     public static void main(String[] args) {
         Scanner get = new Scanner(System.in);
 
-        System.out.println("0- input numbers seprated by space \n1- input string\n11- Distinct Array\npraee :1");
+        System.out.println("0- input numbers seprated by space \n1- input string\npraee :1");
         System.out.println("the reverse function press :2");
         System.out.println("To check if araay is sorted press :3");
         System.out.println("To Get The Average :4");
@@ -21,6 +21,7 @@ public class SWE7 {
         System.out.println("To Get The Primes :7");
         System.out.println("To Suffle array :8");
         System.out.println("To Get The Median press :9");
+        System.out.println("To Get Distinct Array Function press :11");
         int num = 0;
         num = get.nextInt();
         if (num == 1) {
@@ -102,6 +103,18 @@ public class SWE7 {
              }
              System.out.println("median is :=  "+median(arr));
          }
+        if (num == 11) //Distinct Array
+        {
+            Scanner y = new Scanner(System.in);
+            System.out.print("Enter the Size of the Array : ");
+            int sizeofarr = y.nextInt();
+            Integer[] Arr = new Integer[sizeofarr];
+            System.out.print("Type " + sizeofarr + " elemnets : ");
+            for (int i = 0; i < sizeofarr; i++) {
+                Arr[i] = y.nextInt();
+            }
+            PrintDistinctArray(Arr, sizeofarr);
+        }
     }
 
     public static void largestprime() {
@@ -175,17 +188,7 @@ public static int median(int[] l)
                 System.out.print(x);
             }
 
-        } else if (num == 11) {
-            Scanner y = new Scanner(System.in);
-            System.out.print("Enter the Size of the Array : ");
-            int sizeofarr = y.nextInt();
-            Integer[] Arr = new Integer[sizeofarr];
-            System.out.print("Type " + sizeofarr + " elemnets : ");
-            for (int i = 0; i < sizeofarr; i++) {
-                Arr[i] = y.nextInt();
-            }
-            PrintDistinctArray(Arr, sizeofarr);
-        }
+        } 
 
     }
 
