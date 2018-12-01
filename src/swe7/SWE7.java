@@ -319,6 +319,7 @@ public static int median(int[] l)
         }
         return Prim_Arr;
     }
+    
     public static <E> void shuffle(E characters[]){
          for(int i=0;i<characters.length;i++){
             int s=i+(int)(Math.random()*(characters.length-i));
