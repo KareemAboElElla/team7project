@@ -77,6 +77,11 @@ public class SWE7 {
                 System.out.println(myPrim_Arr.get(i));
             }
         }
+        if (num == 8) /// Shuffle array
+        {
+            Integer [] arr =new Integer [5];
+            shuffle(arr);
+        }
     }
 
     public static void largestprime() {
@@ -277,5 +282,16 @@ public class SWE7 {
             }
         }
         return Prim_Arr;
+    }
+    public static <E> void shuffle(E characters[]){
+         for(int i=0;i<characters.length;i++){
+            int s=i+(int)(Math.random()*(characters.length-i));
+            E temp=characters[s];
+            characters[s]=characters[i];
+            characters[i]=temp;}
+        System.out.println("Array in shuffle:");
+        for(int j=0;j<characters.length;j++){
+            System.out.println(characters[j]+" ");
+        }
     }
 }
