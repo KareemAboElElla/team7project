@@ -52,6 +52,7 @@ public class SWE7 {
             System.out.println("To Get The Median press :9");
             System.out.println("To Distincit array :10");
             System.out.println("To Most repeated value :11");
+	    System.out.println("To Get the minimum 3 numbers : 12");
             System.out.println("To Do all :18");
             System.out.println("To Exit :19");
             System.out.println("Your Choice: ");
@@ -157,6 +158,13 @@ public class SWE7 {
                     RepeatedValue(array);
                 }
             }
+	    
+            if (num == 12) ///Get min 3 numbers.
+            {
+
+             Get_min_3numbers(arr);
+            
+	    }
 
             if (num == 18) {
                 if (type == 1) {
@@ -392,4 +400,13 @@ public class SWE7 {
         }
         System.out.println();
     }
+
+   public static void Get_min_3numbers(Integer[] arr)
+    {
+
+        Arrays.sort(arr);
+        System.out.println("the minimum 3 numbers:" + arr[0] + arr[1] + arr[2] );
+    
+    }
+		
 }
